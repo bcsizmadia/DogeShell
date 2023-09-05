@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+# frozen_string_literal: true
+
+require_relative '../lib/doge_shell/'
+
+DogeShell.create_condig_dir
+
+Readline::HISTORY.push(*File.readlines(DogeShell::HISTORY_FILE).map(&:chomp)) if File.exist?(DogeShell::HISTORY_FILE)
+
+DogeShell::Shell.new
+
+at_exit do
+  File.write(DogeShell::HISTORY_FILE, Readline::HISTORY.to_a.join("\n"))
+end
