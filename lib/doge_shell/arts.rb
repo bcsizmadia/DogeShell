@@ -10,6 +10,8 @@ module DogeShell
 
     def self.hardcore_doge_mode
       system("imgcat #{Dir.pwd}/assets/doge.gif")
+    rescue Interrupt
+      puts 'Wow. Much Hardcore. Such exit.'
     rescue StandardError
       ''
     end
