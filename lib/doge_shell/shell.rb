@@ -8,8 +8,8 @@ module DogeShell
       @doge_mode = configuration['doge_mode']
       @opening_message = configuration['opening_message']
 
-      ASCII.display_doge_png if configuration['display_doge_png']
-      ASCII.display_doge if configuration['display_doge_ascii']
+      Arts.display_doge_png if configuration['display_doge_png']
+      Arts.display_doge if configuration['display_doge_ascii']
       start
     end
 
@@ -30,7 +30,7 @@ module DogeShell
           @doge_mode = !@doge_mode
           puts @doge_mode ? 'Doge mode activated! Much wow!' : 'Doge mode deactivated! So sad!'
         when 'hardcore'
-          ASCII.hardcore_doge_mode
+          Arts.hardcore_doge_mode
         when 'exit'
           break
         else

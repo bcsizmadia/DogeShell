@@ -6,7 +6,7 @@ require 'readline'
 require_relative 'doge_shell/config/initializer'
 require_relative 'doge_shell/config/parser'
 require_relative 'doge_shell/colorize'
-require_relative 'doge_shell/ascii'
+require_relative 'doge_shell/arts'
 require_relative 'doge_shell/shell'
 require_relative 'doge_shell/git'
 

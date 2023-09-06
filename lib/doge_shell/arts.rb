@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module DogeShell
-  class ASCII
+  class Arts
     def self.display_doge_png
       system("imgcat #{Dir.pwd}/assets/doge.png")
     rescue StandardError
