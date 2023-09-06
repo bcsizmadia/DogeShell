@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors = ['Bence Csizmadia']
 
   spec.summary = 'Doge Shell'
-  spec.homepage = 'https://github.com/bcsizmadia/doge_shell'
+  spec.homepage = 'https://github.com/bcsizmadia/DogeShell'
   spec.required_ruby_version = '>= 2.6.0'
 
   spec.metadata['homepage_uri'] = spec.homepage
