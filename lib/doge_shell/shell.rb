@@ -3,16 +3,18 @@
 module DogeShell
   class Shell
     def initialize
-      @doge_mode = false
-      @opening_message = 'Wow. Such shell. Much terminal.'
-      load_config
-      ASCII.display_doge_png
-      # ASCII.display_doge
+      configuration = ConfigParser.new.parse
+
+      @doge_mode = configuration['doge_mode']
+      @opening_message = configuration['opening_message']
+
+      Arts.display_doge_png if configuration['display_doge_png']
+      Arts.display_doge if configuration['display_doge_ascii']
       start
     end
 
     def start
-      puts @opening_message if @opening_message
+      puts @opening_message
       loop do
         user_input = Readline.readline("doge#{prompt}$ ", true)
         command, *args = user_input.split
@@ -28,7 +30,7 @@ module DogeShell
           @doge_mode = !@doge_mode
           puts @doge_mode ? 'Doge mode activated! Much wow!' : 'Doge mode deactivated! So sad!'
         when 'hardcore'
-          ASCII.hardcore_doge_mdoe
+          Arts.hardcore_doge_mode
         when 'exit'
           break
         else
@@ -74,12 +76,6 @@ module DogeShell
       git_branch = Colors.green(Git.git_branch)
       doge_mode_status = @doge_mode ? Colors.red('DOGE_MODE ') : ''
       [git_branch, doge_mode_status].reject(&:empty?).join(' ')
-    end
-
-    def load_config
-      eval(File.read(DogeShell::CONFIG_FILE)) if File.exist?(DogeShell::CONFIG_FILE)
-    rescue StandardError
-      puts ''
     end
   end
 end

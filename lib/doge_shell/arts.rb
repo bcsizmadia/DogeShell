@@ -1,15 +1,17 @@
 # frozen_string_literal: true
 
 module DogeShell
-  class ASCII
+  class Arts
     def self.display_doge_png
       system("imgcat #{Dir.pwd}/assets/doge.png")
     rescue StandardError
       ''
     end
 
-    def self.hardcore_doge_mdoe
-      system("imgcat #{Dir.pwd}/assets/doge2.gif")
+    def self.hardcore_doge_mode
+      system("imgcat #{Dir.pwd}/assets/doge.gif")
+    rescue Interrupt
+      puts 'Wow. Much Hardcore. Such exit.'
     rescue StandardError
       ''
     end

@@ -4,7 +4,7 @@
 
 require_relative '../lib/doge_shell/'
 
-DogeShell.create_condig_dir
+DogeShell::ConfigInitializer.new
 
 Readline::HISTORY.push(*File.readlines(DogeShell::HISTORY_FILE).map(&:chomp)) if File.exist?(DogeShell::HISTORY_FILE)
 
