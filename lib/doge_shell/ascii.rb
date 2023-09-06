@@ -9,7 +9,7 @@ module DogeShell
     end
 
     def self.hardcore_doge_mdoe
-      system("imgcat #{Dir.pwd}/assets/doge2.gif")
+      system("imgcat #{Dir.pwd}/assets/doge.gif")
     rescue StandardError
       ''
     end
